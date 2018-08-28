@@ -25,10 +25,10 @@ $terminal_fg_color: white;
 $terminal_borders_color: darken($terminal_bg_color, 10%);
 
 // Widget Colors
-$headerbar_bg_color: #2B2929;
+$headerbar_bg_color: $white;
 $menubar_bg_color: $headerbar_bg_color;
-$headerbar_fg_color: $porcelain;
-$headerbar_text_color: $silk;
+$headerbar_fg_color: $ash;
+$headerbar_text_color: $ash;
 $headerbar_insensitive_color: mix($headerbar_fg_color, $headerbar_bg_color, 50%);
 //
 $backdrop_headerbar_bg_color: lighten($headerbar_bg_color, 7%);

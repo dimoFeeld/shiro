@@ -51,6 +51,7 @@ list.tweak-categories separator {
         background: transparentize(lighten($jet,10%),0.1);
       }
     }
+
   }
 
   .searchbar-container searchbar {
@@ -66,7 +67,7 @@ list.tweak-categories separator {
     border-color: transparentize($borders_color, 0.6);
     border-left: 1px;
 
-    &:hover {background-color: $bg_color;}
+    &:hover {background-color: red;}
     &:backdrop { background-color: if($variant==light,#EEEFF0,$backdrop_base_color);} // It should be _backdrop_color(white); but that does not work.
   }
 

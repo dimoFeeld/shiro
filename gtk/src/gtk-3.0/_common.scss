@@ -873,7 +873,7 @@ button {
   &.font,
   &.file { separator { background-color: transparent; }}
 
-  &.font { > box > box > label { font-weight: 500; }}
+  &.font { > box > box > label { font-weight: 200; }}
 
   // inline-toolbar buttons
   .inline-toolbar &, .inline-toolbar &:backdrop {
@@ -1567,9 +1567,9 @@ headerbar {
   padding: 0 6px;
   min-height: 40px;
   border-color: transparentize(_border_color($headerbar_bg_color), 0.7);
-  border-top-color: $inkstone;
+  border-top-color: transparent;
   border-style: solid;
-  border-width: 1px 1px 0 1px;
+  border-width: 0;
   border-radius: 0;
   background-color: $headerbar_bg_color;
   color: $headerbar_fg_color;
@@ -1589,7 +1589,7 @@ headerbar {
   label:backdrop { color: inherit; } // make sure to inherit the backdrop label color
 
   .title {
-    font-weight: 500;
+    font-weight: 200;
     padding-left: 12px;
     padding-right: 12px;
   }
@@ -1603,14 +1603,14 @@ headerbar {
   }
 
   & > separator {
-      background-image: image(mix($inkstone, $headerbar_bg_color, 50%));
+      background-image: image(mix($inkstone, $headerbar_bg_color, 10%));
       &:backdrop { background-image: image(mix(darken($inkstone, 5%), $backdrop_headerbar_bg_color, 50%)); }
   }
 
   ~ separator, separator {
     &, &.titlebutton {
      &.horizontal, &.vertical {
-        & { background-image: image(mix($inkstone, $headerbar_bg_color, 50%)); }
+        & { background-image: image(mix($inkstone, $headerbar_bg_color, 10%)); }
         &:backdrop { background-image: image(mix(darken($inkstone, 5%), $backdrop_headerbar_bg_color, 50%)); }
       }
     }
@@ -1708,7 +1708,7 @@ headerbar {
           &:backdrop { border-left-color: _border_color($headerbar_bg_color); }
         }
       }
-      border-width: 1px;
+      border-width: 0px;
       border-style: solid;
       border-radius: $small_radius;
       -gtk-outline-radius: $small_radius;
@@ -1727,17 +1727,17 @@ headerbar {
       color: $headerbar_text_color;
 
       &:hover {
-        box-shadow: inset 0 -2px transparentize($headerbar_text_color, 0.5);
-        &:backdrop { box-shadow: inset 0 -2px transparentize($headerbar_text_color, 0.7); }
+        box-shadow: inset 0 3px transparentize($headerbar_text_color, 0.5);
+        &:backdrop { box-shadow: inset 0 3px transparentize($headerbar_text_color, 0.7); }
       }
 
-      &:active { box-shadow: inset 0 -2px $headerbar_text_color; }
+      &:active { box-shadow: inset 0 3px $headerbar_text_color; }
 
       &:checked {
-        color: $selected_fg_color;
-        box-shadow: inset 0 -2px $selected_bg_color;
+        color: $jet;
+        box-shadow: inset 0 3px $selected_fg_color;
 
-        &:hover { box-shadow: inset 0 -2px mix($selected_fg_color, $selected_bg_color, 10%); }
+        &:hover { box-shadow: inset 0 3px mix($selected_fg_color, $selected_bg_color, 10%); }
       }
 
       &:backdrop {
@@ -1746,7 +1746,7 @@ headerbar {
 
         &:checked {
           color: $backdrop_headerbar_fg_color;
-          box-shadow: inset 0 -2px _backdrop_color($selected_bg_color);
+          box-shadow: inset 0 3px _backdrop_color($selected_bg_color);
         }
       }
     }
@@ -1909,7 +1909,7 @@ headerbar {
   }
 
   &.default-decoration {
-    min-height: 26px;
+    max-height: 26px;
     padding: 4px 6px;
 
     button.titlebutton {
@@ -2215,7 +2215,7 @@ treeview.view {
   header {
     button {
       @extend %column_header_button;
-      font-weight: 500;
+      font-weight: 200;
       box-shadow: none;
       -gtk-outline-radius: 0;
     }
@@ -2613,7 +2613,7 @@ notebook {
 
       &:checked {
         color: $fg_color;
-        font-weight: 500;
+        font-weight: 200;
         background-color: $base_color;
         border-color: $borders_color;
       }
@@ -3940,7 +3940,7 @@ filechooser {
       &, & label { color: $text_color }
 
       &:backdrop label { color: $backdrop_text_color; }
-      &:checked label { font-weight: 500; }
+      &:checked label { font-weight: 200; }
       &:backdrop{background: darken($backdrop_bg_color, 5%);}
     }
   }
@@ -4038,6 +4038,7 @@ placessidebar {
   > viewport.frame {
     background-color: $bg_color;
     border-style: none;
+    margin-top: 24px;
 
     &:backdrop { background-color: $backdrop_bg_color; };
   }
@@ -4046,7 +4047,7 @@ placessidebar {
 
   separator {
     // separator within sidebar
-    background-color: transparentize($borders_color, 0.5);
+    background-color: transparent;
   }
 
   row {
@@ -4487,8 +4488,8 @@ decoration {
 
 // Window Close button
 button.titlebutton {
-  $c: $headerbar_bg_color;
-  $tc: $headerbar_fg_color;
+  $c: mix($headerbar_fg_color, $headerbar_bg_color, 30%);
+  $tc: $headerbar_bg_color;
 
   &, &:hover, &:active {
     headerbar &, .titlebar &, & {
@@ -4514,12 +4515,12 @@ button.titlebutton {
   }
 
   &.close {
-    @include draw_circle($selected_bg_color, $close:true);
+    @include draw_circle($c, $close:true);
     &:hover {
-      @include draw_circle($selected_bg_color, $close:true);
+      @include draw_circle($c, $close:true);
     }
     &:active {
-      @include draw_circle($selected_bg_color, $close:true);
+      @include draw_circle($c, $close:true);
     }
   }
 }

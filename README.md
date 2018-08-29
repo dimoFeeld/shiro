@@ -3,8 +3,16 @@
 Based on [Yaru theme](https://github.com/ubuntu/yaru)
 
 ## Concept Mockups
+Designed and hosted on Figma
 
+![Shiro Preview](https://github.com/dimoFeeld/shiro/blob/master/mockups/shiro_concept_review.png)
 
+* [Shell](https://www.figma.com/file/JQlJo3VKMsDRjIdMGvtqgvwb/Ubuntu?node-id=3%3A13)
+* [Calendar](https://www.figma.com/file/JQlJo3VKMsDRjIdMGvtqgvwb/Ubuntu?node-id=297%3A2)
+* [Lockscreen Shiled](https://www.figma.com/file/JQlJo3VKMsDRjIdMGvtqgvwb/Ubuntu?node-id=186%3A0)
+* [Lockscreen Login](https://www.figma.com/file/JQlJo3VKMsDRjIdMGvtqgvwb/Ubuntu?node-id=209%3A0)
+* [File Manager](https://www.figma.com/file/JQlJo3VKMsDRjIdMGvtqgvwb/Ubuntu?node-id=68%3A0)
+* [File Manager Search](https://www.figma.com/file/JQlJo3VKMsDRjIdMGvtqgvwb/Ubuntu?node-id=59%3A0)
 
 It contains:
  * a GNOME Shell theme

@@ -5,7 +5,7 @@ Based on [Yaru theme](https://github.com/ubuntu/yaru)
 ## Concept Mockups
 Designed and hosted on Figma
 
-![Shiro Preview](https://github.com/dimoFeeld/shiro/blob/master/mockups/shiro_concept_review.png)
+![Shiro Preview](https://github.com/dimoFeeld/shiro/blob/master/mockups/intro.png)
 
 * [Shell](https://www.figma.com/file/JQlJo3VKMsDRjIdMGvtqgvwb/Ubuntu?node-id=3%3A13)
 * [Calendar](https://www.figma.com/file/JQlJo3VKMsDRjIdMGvtqgvwb/Ubuntu?node-id=297%3A2)

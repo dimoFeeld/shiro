@@ -37,7 +37,7 @@
 $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $asset_suffix: if($variant=='dark', '-dark', '');
 $small_radius: 4px;
-$medium_radius: 6px;
+$medium_radius: 8px;
 $large_radius: 12px;
 $backdrop_transition: all 200ms ease-out;
 $button_transition: all 0.4s ease-out;
@@ -544,7 +544,7 @@ button {
     outline-color: $focus_color;
     outline-style: dashed;
     outline-offset: -3px;
-    -gtk-outline-radius: $small_radius;
+    -gtk-outline-radius: $medium_radius;
 
     @include button(normal);
 
@@ -674,7 +674,7 @@ button {
     &.image-button { min-width: 32px; }
 
     color: $osd_fg_color;
-    border-radius: $small_radius;
+    border-radius: $medium_radius;
 
     @include button(osd);
 
@@ -1020,22 +1020,22 @@ toolbar.inline-toolbar toolbutton:backdrop {
   @extend %linked_middle;
 
   &:first-child {
-    border-top-left-radius: $small_radius;
-    border-bottom-left-radius: $small_radius;
-    -gtk-outline-radius: $small_radius 0 0 $small_radius;
+    border-top-left-radius: $medium_radius;
+    border-bottom-left-radius: $medium_radius;
+    -gtk-outline-radius: $medium_radius 0 0 $medium_radius;
 
   }
 
   &:last-child {
-    border-top-right-radius: $small_radius;
-    border-bottom-right-radius: $small_radius;
+    border-top-right-radius: $medium_radius;
+    border-bottom-right-radius: $medium_radius;
     border-right-style: solid;
-    -gtk-outline-radius: 0 $small_radius $small_radius 0;
+    -gtk-outline-radius: 0 $medium_radius $medium_radius 0;
   }
 
   &:only-child {
-    border-radius: $small_radius;
-    -gtk-outline-radius: $small_radius;
+    border-radius: $medium_radius;
+    -gtk-outline-radius: $medium_radius;
     border-style: solid;
   }
 }
@@ -1056,15 +1056,15 @@ toolbar.inline-toolbar toolbutton:backdrop {
   }
 
   &:first-child {
-    border-top-left-radius: $small_radius;
-    border-top-right-radius: $small_radius;
-    -gtk-outline-radius: $small_radius $small_radius 0 0;
+    border-top-left-radius: $medium_radius;
+    border-top-right-radius: $medium_radius;
+    -gtk-outline-radius: $medium_radius $medium_radius 0 0;
   }
 
   &:last-child {
-    border-bottom-left-radius: $small_radius;
-    border-bottom-right-radius: $small_radius;
-    -gtk-outline-radius: 0 0 $small_radius $small_radius;
+    border-bottom-left-radius: $medium_radius;
+    border-bottom-right-radius: $medium_radius;
+    -gtk-outline-radius: 0 0 $medium_radius $medium_radius;
     border-style: solid;
   }
 
@@ -1074,8 +1074,8 @@ toolbar.inline-toolbar toolbutton:backdrop {
   }
 
   &:only-child {
-    border-radius: $small_radius;
-    -gtk-outline-radius: $small_radius;
+    border-radius: $medium_radius;
+    -gtk-outline-radius: $medium_radius;
     border-style: solid;
   }
 }
@@ -1280,9 +1280,9 @@ spinbutton {
         }
       }
 
-      &:dir(ltr):last-child { border-radius: 0 $small_radius $small_radius 0; }
+      &:dir(ltr):last-child { border-radius: 0 $medium_radius $medium_radius 0; }
 
-      &:dir(rtl):first-child { border-radius: $small_radius 0 0 $small_radius; }
+      &:dir(rtl):first-child { border-radius: $medium_radius 0 0 $medium_radius; }
     }
   }
 
@@ -1324,9 +1324,9 @@ spinbutton {
         box-shadow: none;
       }
 
-      &:dir(ltr):last-child { border-radius: 0 $small_radius $small_radius 0; }
+      &:dir(ltr):last-child { border-radius: 0 $medium_radius $medium_radius 0; }
 
-      &:dir(rtl):first-child { border-radius: $small_radius 0 0 $small_radius; }
+      &:dir(rtl):first-child { border-radius: $medium_radius 0 0 $medium_radius; }
     }
   }
 
@@ -1365,12 +1365,12 @@ spinbutton {
     }
 
     %top_button {
-      border-radius: $small_radius $small_radius 0 0;
+      border-radius: $medium_radius $medium_radius 0 0;
       border-style: solid solid none solid;
     }
 
     %bottom_button {
-      border-radius: 0 0 $small_radius $small_radius;
+      border-radius: 0 0 $medium_radius $medium_radius;
       border-style: none solid solid solid;
     }
   }
@@ -1710,8 +1710,8 @@ headerbar {
       }
       border-width: 0px;
       border-style: solid;
-      border-radius: $small_radius;
-      -gtk-outline-radius: $small_radius;
+      border-radius: $medium_radius;
+      -gtk-outline-radius: $medium_radius;
 
       &:not(:last-child) { margin-right: 4px; }
     }
@@ -1774,7 +1774,7 @@ headerbar {
       border-width: 0 8px;
       border-style: solid;
       border-color: $c;
-      border-radius: $small_radius;
+      border-radius: $medium_radius;
 
       &:backdrop { border-color: _backdrop_color($c); }
 
@@ -2910,7 +2910,7 @@ switch {
 checkbutton.text-button, radiobutton.text-button {
   // this is for a nice focus on check and radios text
   padding: 2px 0;
-  -gtk-outline-radius: $small_radius;
+  -gtk-outline-radius: $medium_radius;
   outline-offset: 0;
 
   label:not(:only-child) {
@@ -4406,7 +4406,7 @@ colorchooser .popover.osd { border-radius: 5px; }
     &:hover {
       @extend %undecorated_button;
       background-color: transparentize($fg_color,0.9);
-      border-radius: $small_radius;
+      border-radius: $medium_radius;
     }
 
     &:backdrop { &:hover, &:disabled, & { @extend %undecorated_button; }}

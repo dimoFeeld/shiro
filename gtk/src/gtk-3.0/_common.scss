@@ -130,7 +130,7 @@ textview {
   }
 }
 
-textview border { background-color: mix($bg_color, $base_color, 50%); }
+textview border { background-color: mix($bg_color, $base_color, 80%); }
 
 iconview { @extend .view; &:selected { border-radius: $small_radius; } }
 
@@ -144,7 +144,7 @@ flowbox {
   rubberband { @extend rubberband; }
 
   flowboxchild {
-    padding: 3px;
+    padding: 8px;
 
     &:selected {
       @extend %selected_items;
@@ -537,8 +537,8 @@ button {
   @at-root %button_basic, & {
     animation: shrink 1s linear infinite;
     min-height: 24px;
-    min-width: 16px;
-    padding: 4px 8px;
+    min-width: 18px;
+    padding: 4px 6px;
     border: 1px solid;
     border-radius: $medium_radius;
     outline-color: $focus_color;
@@ -2460,9 +2460,9 @@ popover.background {
 notebook {
   > header {
     padding: 1px;
-    border-color: $borders_color;
+    border-color: mix($borders_color, $base_color, 70%);
     border-width: 1px;
-    background: if($variant==light, $porcelain, $base_color);
+    background: if($variant==light, $white, $base_color);
 
     &:backdrop {
       border-color: $backdrop_borders_color;
@@ -2478,8 +2478,11 @@ notebook {
         margin-bottom: -2px;
 
         > tab {
-          border-radius: 4px 4px 0 0;
-          &:checked { border-bottom-color: transparent; }
+          border-radius: 0;
+          border-top-width: 0;
+          border-left-width: 0;
+          border-right-width: 0;
+          &:checked { border-bottom-color: $orange; border-bottom-width: 3; }
         }
       }
     }
@@ -2491,8 +2494,11 @@ notebook {
         margin-top: -2px;
 
         > tab {
-          border-radius: 0 0 4px 4px;
-          &:checked { border-top-color: transparent; }
+          border-radius: 0;
+          border-left-width: 0;
+          border-right-width: 0;
+          border-bottom-width: 0;
+          &:checked { border-top-color: $orange; border-top-width: 3;}
         }
       }
     }
@@ -2504,8 +2510,11 @@ notebook {
         margin-right: -2px;
 
         > tab {
-          border-radius: 4px 0 0 4px;
-          &:checked { border-right-color: transparent; }
+          border-radius: 0;
+          border-top-width: 0;
+          border-bottom-width: 0;
+          border-left-width: 0;
+          &:checked { border-right-color: $orange; border-right-width: 3px;}
         }
       }
     }
@@ -2517,8 +2526,11 @@ notebook {
         margin-left: -2px;
 
         > tab {
-          border-radius: 0 4px 4px 0;
-          &:checked { border-left-color: transparent; }
+          border-radius: 0;
+          border-top-width: 0;
+          border-bottom-width: 0;
+          border-right-width: 0;
+          &:checked { border-left-color: $orange; border-left-width: 3;}
         }
       }
     }
@@ -2601,7 +2613,7 @@ notebook {
 
       &:hover:not(:active):not(:backdrop):not(:checked) {
         background-color: mix($insensitive_bg_color, $base_color, 25%);
-        border-color: mix($borders_color, $base_color, 60%);
+        border-color: mix($borders_color, $orange, 60%);
       }
 
       &:backdrop {
@@ -2613,7 +2625,7 @@ notebook {
 
       &:checked {
         color: $fg_color;
-        font-weight: 200;
+        font-weight: 400;
         background-color: $base_color;
         border-color: $borders_color;
       }
@@ -2898,8 +2910,8 @@ switch {
   .content-view .tile check#{$s}:not(list) {
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}.png"), url("assets/checkbox#{$as}@2.png"));
     background-color: transparent;
-    min-width: 30px;
-    min-height: 30px;
+    min-width: 24px;
+    min-height: 24px;
     background-image: none;
     transition: none;
     box-shadow: none;
@@ -2909,7 +2921,7 @@ switch {
 
 checkbutton.text-button, radiobutton.text-button {
   // this is for a nice focus on check and radios text
-  padding: 2px 0;
+  padding: 4px 0;
   -gtk-outline-radius: $medium_radius;
   outline-offset: 0;
 
@@ -2921,7 +2933,7 @@ checkbutton.text-button, radiobutton.text-button {
 
 check,
 radio {
-  margin: 0 4px;
+  margin: 0 8px;
 
   &:only-child { margin: 0; }
 
@@ -2938,8 +2950,8 @@ radio {
     }
   }
 
-  min-height: 14px;
-  min-width: 14px;
+  min-height: 16px;
+  min-width: 16px;
   padding: 1px;
   -gtk-icon-source: none;
 
@@ -3647,7 +3659,6 @@ frame > border,
 .frame {
   box-shadow: none;
   margin: 0;
-  padding: 0;
   border-radius: 0;
   border: 1px solid $borders_color;
 
@@ -3748,7 +3759,7 @@ list {
     border-color: $backdrop_borders_color;
   }
 
-  row { padding: 2px; }
+  row { padding: 8px; }
 
   separator {
     // separator within sidebar
@@ -4418,7 +4429,7 @@ colorchooser .popover.osd { border-radius: 5px; }
  * Window Decorations *
  *********************/
 decoration {
-  border-radius: 7px 7px 0 0;
+  border-radius: 4px;
   // lamefun trick to get rounded borders regardless of CSD use
   border-width: 0px;
 
@@ -4426,7 +4437,7 @@ decoration {
   // see bug #722563
   $_wm_border: if($variant == 'light',transparentize(black, 0.77),transparentize(black, 0.5));
 
-  $window_decoration_shadow: 0 3px 9px 1px;
+  $window_decoration_shadow: 0 3px 20px 1px;
   box-shadow: $window_decoration_shadow transparentize(black, 0.5);
 
   // FIXME rationalize shadows
